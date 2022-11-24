@@ -4,16 +4,14 @@ Jan Feyen
 
 CSE 4300 Group Project Proposal
 
-A Shell Written in C++
+A Shell Written in C
 
-Our project idea is to write a relatively simple shell program in C++. The shell will accept a group of commands written by us. The exact number of commands defined by us depeneds on time. Some commands
-include things such as displaying the user history of commands, displaying system/memory information, killing procesess, and miscellanous features.
+Our project idea is to write a relatively simple shell program in C. The shell will accept a group of commands written by us. The exact number of commands defined by us depeneds on time. Some commands
+include things such as displaying the user history of commands or simply exiting the shell
 
 If the command given to the shell is a regualar bash command, it will accept that too, as long as we don't override the name.
 
-The shell will make use of the process API within C++ to execute procesess. It will also include functionality for piping the standard output of a command to the standard input of another, and also will include support for append the output of a program to a file. 
-
-Furthermore, the C++17 standard includes a library that allows the code to perform operations on file systems. If time allows, we may be able to make use of this to write our own ls and cd functions.
+The shell will make use of the process API within C to execute procesess. It will also include functionality for piping the standard output of a command to the standard input of another
 
 The shell will work like this:
 
