@@ -1,3 +1,9 @@
+// Main file to start both server and client
+// To start server
+// java CLIchat server [port] [ipaddr] port and ip are optional
+// To start client
+// java CLIchat client [port] [ipaddr] port and ip are optional
+
 import java.io.IOException;
 
 public class CLIchat {
@@ -7,7 +13,7 @@ public class CLIchat {
             System.out.println("Too few arguments");
             System.exit(0);
         }
-        int serverPort=1234;
+        int serverPort=1234;//default serverport
         if(args[0].equals("server")){
             if(args.length>1){
                 serverPort = Integer.parseInt(args[1]);
@@ -15,8 +21,8 @@ public class CLIchat {
             Server server = new Server(serverPort); 
             server.start();
         }
-        int clientPort = 1234;
-        String clientServerAddress = "localhost";
+        int clientPort = 1234; //default for port to connect
+        String clientServerAddress = "localhost";//default server for client to connect
         if(args[0].equals("client")){
             if(args.length>1){
                 clientPort=Integer.parseInt(args[1]);
