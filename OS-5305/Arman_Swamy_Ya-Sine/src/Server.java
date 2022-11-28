@@ -153,7 +153,7 @@ public class Server{
 		ObjectOutputStream sOutput;
 		int id;
 		String username;
-		ChatMessage cm;
+		MessageObject cm;
 		String date;
 		ClientThread(Socket socket,History history) {
 
@@ -190,7 +190,7 @@ public class Server{
 			boolean serverActiveStatus = true;
 			while(serverActiveStatus) {
 				try {
-					cm = (ChatMessage) sInput.readObject();
+					cm = (MessageObject) sInput.readObject();
 				}
 				catch (IOException e) {
 					display(username + " Exception reading Streams: " + e);
@@ -201,7 +201,7 @@ public class Server{
 				}
 				String message = cm.getMessage();
 				switch(cm.getType()) {
-					case ChatMessage.MESSAGE:{
+					case MessageObject.MESSAGE:{
 						boolean confirmation =  broadcast(username + ": " + message);
 						if(confirmation==false){
 							String msg = notif + "Sorry. No such user exists." + notif;
@@ -209,12 +209,12 @@ public class Server{
 						}
 					}
 					break;
-					case ChatMessage.LOGOUT:{
+					case MessageObject.LOGOUT:{
 						display(username + " disconnected with a LOGOUT message.");
 						serverActiveStatus = false;
 					}
 					break;
-					case ChatMessage.ACTIVEUSERS:{
+					case MessageObject.ACTIVEUSERS:{
 						writeMsg("List of the users connected at " + sdf.format(new Date()) + "\n");
 						for(int i = 0; i < al.size(); ++i) {
 							ClientThread ct = al.get(i);

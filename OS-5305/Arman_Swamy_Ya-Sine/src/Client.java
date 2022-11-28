@@ -23,9 +23,8 @@ public class Client  {
 		this.username = username;
 	}
 
-	Client (){
-		//empty constructor
-	}
+	Client (){}//empty constructor
+	
 
 	Client(String server, int port, String username) {
 		this.server = server;
@@ -77,7 +76,7 @@ public class Client  {
 		System.out.println(msg);
 	}
 
-	void sendMessage(ChatMessage msg) {
+	void sendMessage(MessageObject msg) {
 		try {
 			sOutput.writeObject(msg);
 		}
@@ -129,14 +128,14 @@ public class Client  {
 			System.out.print("> ");
 			String msg = scan.nextLine();	
 			if(msg.equalsIgnoreCase("/logout")) {//to logout from server
-				client.sendMessage(new ChatMessage(ChatMessage.LOGOUT, ""));
+				client.sendMessage(new MessageObject(MessageObject.LOGOUT, ""));
 				break;
 			}
 			else if(msg.equalsIgnoreCase("/activeusers")) {//to list all users
-				client.sendMessage(new ChatMessage(ChatMessage.ACTIVEUSERS, ""));				
+				client.sendMessage(new MessageObject(MessageObject.ACTIVEUSERS, ""));				
 			}
 			else {// message string
-				client.sendMessage(new ChatMessage(ChatMessage.MESSAGE, msg));
+				client.sendMessage(new MessageObject(MessageObject.MESSAGE, msg));
 			}
 		}
 		scan.close();

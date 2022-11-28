@@ -1,7 +1,7 @@
 //chat message class to handle structures of message input
 import java.io.*;
 
-public class ChatMessage implements Serializable {
+public class MessageObject implements Serializable {
 	//ACTIVEUSERS - lists all active users
 	//MESSAGE - is the format of message
 	//LOGOUT- logsout from the server
@@ -9,7 +9,7 @@ public class ChatMessage implements Serializable {
 	private int type;
 	private String message;
 	
-	ChatMessage(int type, String message) {
+	MessageObject(int type, String message) {
 		this.type = type;
 		this.message = message;
 	}
