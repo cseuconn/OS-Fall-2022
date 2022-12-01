@@ -116,7 +116,7 @@ public class Client  {
 		}
 			
 		
-		System.out.println("\nHello "+userName+"! Welcome to the chatroom "+servername);
+		System.out.println("\nHello "+userName+"! Welcome to the chatroom ");
 		System.out.println("Instructions:");
 		System.out.println("1. Just type messages to send it to all active clients");
 		System.out.println("2. Type '@username<space><message>' to send a personal message to desired client");
